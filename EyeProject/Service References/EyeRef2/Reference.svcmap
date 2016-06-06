@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b991430-0dd3-4aaf-b1fb-ca9d4890acd9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://eyeplatform.azurewebsites.net/EyeWebService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EyeWebService.xsd" MetadataType="Schema" ID="9f2b05d5-db32-4ae1-83a8-80aff41e7b71" SourceId="1" SourceUrl="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="fc88bb98-507f-42b8-a652-d387651fe824" SourceId="1" SourceUrl="http://eyeplatform.azurewebsites.net/EyeWebService.svc?wsdl" />
+    <MetadataFile FileName="EyeWebService1.xsd" MetadataType="Schema" ID="1e0ad090-e9fd-446f-b75c-69f93351cd96" SourceId="1" SourceUrl="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EyeWebService2.xsd" MetadataType="Schema" ID="f5b07928-9a00-4d83-bfb6-001292a459dc" SourceId="1" SourceUrl="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

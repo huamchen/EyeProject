@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IEyeWebService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://eyeplatform.azurewebsites.net/EyeWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EyeWebService.UtilClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEyeWebService_SetProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserId" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeId" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListChildrenProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListChildrenProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListChildrenProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListChildrenProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetPatientProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetPatientProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllProviderProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllProviderProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllProviderProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllProviderProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetChildProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetChildProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetChildProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetChildProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListPatientsProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPatientsProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListPatientsProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPatientsProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetUserProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetParentProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetParentProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetParentProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetParentProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetProviderProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProviderProfile" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_GetProviderProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProviderProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_CreateUpdateTherapy_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateTherapy" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_CreateUpdateTherapy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateTherapyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_CreateUpdateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateGame" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_CreateUpdateGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllTherapy_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllTherapy" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllTherapy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllTherapyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllGamesForTherapy_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllGamesForTherapy" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListAllGamesForTherapy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllGamesForTherapyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGame" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteTherapy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTherapy" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteTherapy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTherapyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListGameScoresForPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListGameScoresForPatient" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListGameScoresForPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListGameScoresForPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListGameAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListGameAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_ListGameAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListGameAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetGameScoresForPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetGameScoresForPatient" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetGameScoresForPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetGameScoresForPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetGameAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetGameAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_SetGameAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetGameAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteGameAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGameAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IEyeWebService_DeleteGameAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGameAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEyeWebService">
+    <wsdl:operation name="SetProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/SetProfile" message="tns:IEyeWebService_SetProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/SetProfileResponse" message="tns:IEyeWebService_SetProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetUserId" message="tns:IEyeWebService_GetUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetUserIdResponse" message="tns:IEyeWebService_GetUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetUserTypeId" message="tns:IEyeWebService_GetUserTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetUserTypeIdResponse" message="tns:IEyeWebService_GetUserTypeId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListChildrenProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListChildrenProfile" message="tns:IEyeWebService_ListChildrenProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListChildrenProfileResponse" message="tns:IEyeWebService_ListChildrenProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetPatientProfile" message="tns:IEyeWebService_GetPatientProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetPatientProfileResponse" message="tns:IEyeWebService_GetPatientProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllProviderProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListAllProviderProfile" message="tns:IEyeWebService_ListAllProviderProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListAllProviderProfileResponse" message="tns:IEyeWebService_ListAllProviderProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetChildProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/SetChildProfile" message="tns:IEyeWebService_SetChildProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/SetChildProfileResponse" message="tns:IEyeWebService_SetChildProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPatientsProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListPatientsProfile" message="tns:IEyeWebService_ListPatientsProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListPatientsProfileResponse" message="tns:IEyeWebService_ListPatientsProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/DeleteProfile" message="tns:IEyeWebService_DeleteProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/DeleteProfileResponse" message="tns:IEyeWebService_DeleteProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetUserProfile" message="tns:IEyeWebService_GetUserProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetUserProfileResponse" message="tns:IEyeWebService_GetUserProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParentProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetParentProfile" message="tns:IEyeWebService_GetParentProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetParentProfileResponse" message="tns:IEyeWebService_GetParentProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/GetProviderProfile" message="tns:IEyeWebService_GetProviderProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/GetProviderProfileResponse" message="tns:IEyeWebService_GetProviderProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateTherapy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/CreateUpdateTherapy" message="tns:IEyeWebService_CreateUpdateTherapy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/CreateUpdateTherapyResponse" message="tns:IEyeWebService_CreateUpdateTherapy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/CreateUpdateGame" message="tns:IEyeWebService_CreateUpdateGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/CreateUpdateGameResponse" message="tns:IEyeWebService_CreateUpdateGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllTherapy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListAllTherapy" message="tns:IEyeWebService_ListAllTherapy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListAllTherapyResponse" message="tns:IEyeWebService_ListAllTherapy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllGamesForTherapy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListAllGamesForTherapy" message="tns:IEyeWebService_ListAllGamesForTherapy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListAllGamesForTherapyResponse" message="tns:IEyeWebService_ListAllGamesForTherapy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/DeleteGame" message="tns:IEyeWebService_DeleteGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/DeleteGameResponse" message="tns:IEyeWebService_DeleteGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTherapy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/DeleteTherapy" message="tns:IEyeWebService_DeleteTherapy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/DeleteTherapyResponse" message="tns:IEyeWebService_DeleteTherapy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListGameScoresForPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListGameScoresForPatient" message="tns:IEyeWebService_ListGameScoresForPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListGameScoresForPatientResponse" message="tns:IEyeWebService_ListGameScoresForPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListGameAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/ListGameAssignment" message="tns:IEyeWebService_ListGameAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/ListGameAssignmentResponse" message="tns:IEyeWebService_ListGameAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGameScoresForPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/SetGameScoresForPatient" message="tns:IEyeWebService_SetGameScoresForPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/SetGameScoresForPatientResponse" message="tns:IEyeWebService_SetGameScoresForPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGameAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/SetGameAssignment" message="tns:IEyeWebService_SetGameAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/SetGameAssignmentResponse" message="tns:IEyeWebService_SetGameAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGameAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEyeWebService/DeleteGameAssignment" message="tns:IEyeWebService_DeleteGameAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEyeWebService/DeleteGameAssignmentResponse" message="tns:IEyeWebService_DeleteGameAssignment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEyeWebService" type="tns:IEyeWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeId">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListChildrenProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListChildrenProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetPatientProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllProviderProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllProviderProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetChildProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetChildProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPatientsProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListPatientsProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetParentProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetProviderProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/CreateUpdateTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateGame">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/CreateUpdateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllGamesForTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllGamesForTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListGameScoresForPatient">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListGameScoresForPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGameScoresForPatient">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetGameScoresForPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IEyeWebService" type="tns:IEyeWebService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IEyeWebService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeId">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListChildrenProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListChildrenProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetPatientProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllProviderProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllProviderProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetChildProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetChildProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPatientsProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListPatientsProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetParentProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderProfile">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/GetProviderProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/CreateUpdateTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateGame">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/CreateUpdateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllGamesForTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListAllGamesForTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTherapy">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteTherapy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListGameScoresForPatient">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListGameScoresForPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/ListGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGameScoresForPatient">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetGameScoresForPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/SetGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGameAssignment">
+      <soap:operation soapAction="http://tempuri.org/IEyeWebService/DeleteGameAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IEyeWebService" binding="tns:BasicHttpBinding_IEyeWebService">
+      <soap:address location="http://eyeplatform.azurewebsites.net/EyeWebService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IEyeWebService" binding="tns:BasicHttpsBinding_IEyeWebService">
+      <soap:address location="https://eyeplatform.azurewebsites.net/EyeWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

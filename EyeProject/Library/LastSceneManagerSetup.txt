@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/near_vision/scene/chooseLevel.unity
+  isLoaded: 1
+  isActive: 1
