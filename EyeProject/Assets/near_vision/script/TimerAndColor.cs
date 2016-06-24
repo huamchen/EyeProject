@@ -11,8 +11,17 @@ public class TimerAndColor : MonoBehaviour {
     public int enableTime;
     System.DateTime beginTime;
     public Sprite[] sp;
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+
+
+    public GameObject topleft;
+    public GameObject topright;
+    public GameObject bottomleft;
+    public GameObject bottomright;
+
+
+
+    void Awake () {
         flag = new bool[4];
         for (int i = 0; i < 4; i++)
             flag[i] = true;
@@ -30,11 +39,19 @@ public class TimerAndColor : MonoBehaviour {
             GameObject.Find("backGround").SetActive(false);
             GameObject.Find("ball").SetActive(false);
             GameObject.Find("pencil").SetActive(false);
+            topleft.GetComponent<RectTransform>().anchoredPosition = new Vector2(-200, 200);
+            topright.GetComponent<RectTransform>().anchoredPosition = new Vector2(200, 200);
+            bottomleft.GetComponent<RectTransform>().anchoredPosition = new Vector2(-200, -200);
+            bottomright.GetComponent<RectTransform>().anchoredPosition = new Vector2(200, -200);
         }
     }
 
     void OnEnable ()
     {
+        topleft = GameObject.Find("TopLeftButton");
+        topright = GameObject.Find("TopRightButton");
+        bottomleft = GameObject.Find("BottomLeftButton");
+        bottomright = GameObject.Find("BottomRightButton");
         float max = 1;
         enableTime++;
         if (enableTime < 5)
@@ -53,6 +70,7 @@ public class TimerAndColor : MonoBehaviour {
                 while (spFlag[spNum]);
                 spFlag[spNum] = true;
                 GameObject.Find("TopLeftButton").GetComponent<Image>().sprite= sp[spNum];
+                
             }
             if (flag[1])
             {
@@ -120,6 +138,10 @@ public class TimerAndColor : MonoBehaviour {
                 GameObject.Find("BottomRightButton").GetComponent<RestartBall>().flag = true;
             }
             beginTime = System.DateTime.Now;
+            topleft.GetComponent<RectTransform>().anchoredPosition = new Vector2(-20000, 0);
+            topright.GetComponent<RectTransform>().anchoredPosition = new Vector2(-20000, 0);
+            bottomleft.GetComponent<RectTransform>().anchoredPosition = new Vector2(-20000, 0);
+            bottomright.GetComponent<RectTransform>().anchoredPosition = new Vector2(-20000, 0);
         }
         else if (enableTime == 5)
         {

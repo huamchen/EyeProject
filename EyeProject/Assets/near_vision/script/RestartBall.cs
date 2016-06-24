@@ -11,7 +11,7 @@ public class RestartBall : MonoBehaviour {
     public GameObject pencil;
 
     // Use this for initialization
-    void Start () {
+    void Awake() {
           var button = this.gameObject.GetComponent<Button>();
           if (button != null)
           {

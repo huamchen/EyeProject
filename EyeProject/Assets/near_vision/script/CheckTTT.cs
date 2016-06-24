@@ -23,7 +23,7 @@ public class CheckTTT : MonoBehaviour {
         int flag = CheckWinLose();
         if(flag==1)
         {
-            this.GetComponent<AudioSource>().Stop();
+            GameObject.Find("BGM").GetComponent<AudioSource>().Stop();
             AudioSource audio = GameObject.Find("RightAudio").GetComponent<AudioSource>();
             audio.Play();
             bg.SetActive(true);
@@ -38,7 +38,7 @@ public class CheckTTT : MonoBehaviour {
         }
         if(flag==2)
         {
-            this.GetComponent<AudioSource>().Stop();
+            GameObject.Find("BGM").GetComponent<AudioSource>().Stop();
             AudioSource audio = GameObject.Find("WrongAudio").GetComponent<AudioSource>();
             audio.Play();
             bg.SetActive(true);
@@ -51,7 +51,7 @@ public class CheckTTT : MonoBehaviour {
         }
         if (step == 9)
         {
-            this.GetComponent<AudioSource>().Stop();
+            GameObject.Find("BGM").GetComponent<AudioSource>().Stop();
             AudioSource audio = GameObject.Find("WrongAudio").GetComponent<AudioSource>();
             audio.Play();
             bg.SetActive(true);
