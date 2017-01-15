@@ -72,6 +72,12 @@
     <Reference Include="System.Data">
       <HintPath>Assets\Plugins\System.Data.dll</HintPath>
     </Reference>
+    <Reference Include="OpenCvSharp">
+      <HintPath>Assets\Plugins\OpenCvSharp\lib\net20\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Blob">
+      <HintPath>Assets\Plugins\OpenCvSharp\lib\net20\OpenCvSharp.Blob.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnswersScript.cs" />
@@ -88,7 +94,36 @@
     <Compile Include="Assets\Scripts\RanDotStereogram.cs" />
     <Compile Include="Assets\Scripts\RegisterUser.cs" />
     <Compile Include="Assets\Scripts\ResetScore.cs" />
+    <Compile Include="Assets\Scripts\ResetScoreForStereo.cs" />
     <Compile Include="Assets\Scripts\ScoreBoard.cs" />
+    <Compile Include="Assets\Scripts\ScoreBoardForStereo.cs" />
+    <Compile Include="Assets\Scripts\StereogramCheck.cs" />
+    <Compile Include="Assets\Scripts\VideoTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Plugins\OpenCvSharp\lib\net20\OpenCvSharp.Blob.XML" />
+    <None Include="Assets\Plugins\OpenCvSharp\lib\net20\OpenCvSharp.XML" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_eye.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_eye_tree_eyeglasses.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalcatface.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalcatface_extended.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalface_alt.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalface_alt2.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalface_alt_tree.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_frontalface_default.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_fullbody.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_lefteye_2splits.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_licence_plate_rus_16stages.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_lowerbody.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_profileface.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_righteye_2splits.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_russian_plate_number.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_smile.xml" />
+    <None Include="Assets\StreamingAssets\haarcascades\haarcascade_upperbody.xml" />
+    <None Include="Assets\StreamingAssets\lbpcascades\lbpcascade_frontalcatface.xml" />
+    <None Include="Assets\StreamingAssets\lbpcascades\lbpcascade_frontalface.xml" />
+    <None Include="Assets\StreamingAssets\lbpcascades\lbpcascade_profileface.xml" />
+    <None Include="Assets\StreamingAssets\lbpcascades\lbpcascade_silverware.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -96,8 +96,13 @@ public class AnswersScript : MonoBehaviour {
 		//for development's sake, lets user know what the total score is
 		//can be deleted when not needed
 		GameObject.Find("Canvas").transform.Find("ResultPanels").transform.Find("Result2").gameObject.SetActive(true);
-		ResultText2.text = "Your total score is: " + total;
-	}
+		ResultText2.text = "Your total score is: " + total+"\n";
+        if (total < 20)
+        {
+            ResultText2.text += "You don't have convergence insufficiency";
+        }
+        else ResultText2.text += "You are showing symptoms";
+    }
 	
 	public void CloseButton(Button button){
 		GameObject.Find("Canvas").transform.Find("ResultPanels").transform.Find("Result2").gameObject.SetActive(false);
